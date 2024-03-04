@@ -73,26 +73,33 @@ card.forEach(function(card) {
 
 //functionnality 7
 var rotateButton = document.querySelector(".btn-secondary");
-var album = document.querySelector(".album")
-var container = album.querySelector(".container")
-var row = container.lastElementChild
-var lastCard = row.lastElementChild
-function endToStart () {
-    row.removeChild(lastCard)
-    row.insertBefore(lastCard, row.firstElementChild)
+var album = document.querySelector(".album");
+var container = album.querySelector(".container");
+var row = container.lastElementChild;
+
+function endToStart() {
+    var lastCard = row.lastElementChild;
+    row.removeChild(lastCard);
+    row.insertBefore(lastCard, row.firstElementChild);
 }
 
-rotateButton.addEventListener("click", endToStart)
+rotateButton.addEventListener("click", endToStart);
 
 //functionnality 8
-var rotateButtonInverse = document.querySelector(".btn-primary")
-var firstCard = row.firstElementChild
+var rotateButtonInverse = document.querySelector(".btn-primary");
+var album = document.querySelector(".album");
+var container = album.querySelector(".container");
+var row = container.lastElementChild;
+
 function startToEnd(event) {
     event.preventDefault();
-    row.removeChild(firstCard)
-    row.insertBefore(firstCard, lastCard.nextSibling)
+    var firstCard = row.firstElementChild; // Stocker une référence à la première carte
+    row.removeChild(firstCard);
+    row.insertBefore(firstCard, null); // Réinsérer à la fin de la rangée
 }
-rotateButtonInverse.addEventListener("click", startToEnd)
+
+rotateButtonInverse.addEventListener("click", startToEnd);
+
 
 //functionnality 8
 var logo = document.querySelector(".navbar-brand");
